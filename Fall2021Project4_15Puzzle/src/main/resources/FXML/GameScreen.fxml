@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PuzzleController">
+   <center>
+      <GridPane fx:id="grid" alignment="CENTER" hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="80.0" />
+            <RowConstraints minHeight="10.0" prefHeight="80.0" />
+            <RowConstraints minHeight="10.0" prefHeight="80.0" />
+            <RowConstraints minHeight="10.0" prefHeight="80.0" />
+         </rowConstraints>
+         <columnConstraints>
+            <ColumnConstraints minWidth="10.0" prefWidth="80.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="80.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="80.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="80.0" />
+         </columnConstraints>
+      </GridPane>
+   </center>
+   <left>
+      <VBox alignment="CENTER" minWidth="220.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="Goal:         " />
+            <Label text="x   1   2   3" />
+            <Label text="4   5   6   7" />
+            <Label text=" 8   9  10 11" />
+            <Label text="12 13 14 15" />
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" minWidth="220.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="solutionButton" mnemonicParsing="false" onAction="#solutionMethod" text="See the Solution" />
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+               <menus>
+                  <Menu mnemonicParsing="false" text="Game">
+                     <items>
+                        <MenuItem fx:id="newPuzzleMenu" mnemonicParsing="false" onAction="#newPuzzleMethod" text="New Puzzle" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Window">
+                     <items>
+                        <MenuItem fx:id="exitMenu" mnemonicParsing="false" onAction="#exitMethod" text="Exit" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+               <children>
+                  <Label fx:id="title" text="15 Puzzle" />
+                  <VBox alignment="CENTER" prefHeight="80.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Click on any tile next to the blank tile to move the tiles it to the blank tile's location." />
+                        <Label text="You win when all tiles are arranged from 1-15 with the blank space on the top left." />
+                        <Label text="You can try a different puzzle by pressing &quot;New Puzzle&quot; on the menu above." />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="If you need help solving the puzzle, you can press either button" />
+                  <Label text=" to let the AI with different heuristics solve it." />
+                  <Label text="Once the AI has found a solution, you can press the &quot;See the Solution&quot; button and" />
+                  <Label text="it will show you the next 10 moves to solving the puzzle." />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="700.0" spacing="70.0">
+               <children>
+                  <Button fx:id="h1Button" mnemonicParsing="false" onAction="#h1Method" text="Solve with AI H1" />
+                  <Button fx:id="h2Button" mnemonicParsing="false" onAction="#h2Method" text="Solve with AI H2" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
